@@ -32,7 +32,11 @@ class ScannerActivity : AppCompatActivity(), ZBarScannerView.ResultHandler {
         val resStr: String = "${result?.contents}"
         val resInt: Int = resStr.toInt()
 
-        val intent = Intent(this, MainActivity::class.java)
+        if(resInt == 2) {
+            Log.d("MyLog","OK!!!!")
+        }
+       // println("num qt: $resInt")
+       // val intent = Intent(this, MainActivity::class.java)
         //intent.putExtras()
 
 
