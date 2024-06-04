@@ -9,6 +9,7 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView
 
 class ScannerActivity : AppCompatActivity(), ZBarScannerView.ResultHandler {
     private lateinit var zbView: ZBarScannerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         zbView = ZBarScannerView(this)
@@ -27,20 +28,10 @@ class ScannerActivity : AppCompatActivity(), ZBarScannerView.ResultHandler {
     }
 
     override fun handleResult(result: Result?) {
-        Log.d("MyLog","Result:${result?.contents}")
-
-        val resStr: String = "${result?.contents}"
-        val resInt: Int = resStr.toInt()
-
-        if(resInt == 2) {
-            Log.d("MyLog","OK!!!!")
-        }
-       // println("num qt: $resInt")
-       // val intent = Intent(this, MainActivity::class.java)
-        //intent.putExtras()
-
-
-        println(resStr)
+        Log.d("MyLog", "Result:${result?.contents}")
+        val intent = Intent(this, UserActivity::class.java)
+        intent.putExtra("key", result?.contents)
+        startActivity(intent)
         finish()
     }
 }

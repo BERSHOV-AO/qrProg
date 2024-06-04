@@ -34,8 +34,6 @@
 
     </LinearLayout>
 
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="100dp"
@@ -65,9 +63,10 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Табельный номер"
-        android:inputType="text"
         android:maxEms="10"
-
+        android:inputType="number"
+        android:digits="0123456789"
+        android:maxLength="6"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,35 +85,16 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Пароль"
-        android:inputType="text"
         android:maxEms="10"
         android:paddingStart="8dp"
-
+        android:inputType="number"
+        android:digits="0123456789"
+        android:maxLength="10"
         android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/personNum" />
-
-
-<!--    вместо button, ConstraintLayout-->
-
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:id="@+id/constraintLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_marginTop="18dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginStart="30dp"-->
-<!--        android:layout_marginEnd="30dp"-->
-<!--        android:layout_marginBottom="208dp"-->
-<!--        android:background="@drawable/design2"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        -->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/password" />-->
-
 
     <Button
         android:id="@+id/bEntrance"
@@ -130,13 +110,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <Button
-        android:id="@+id/bScan"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="QR Code Scanner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package ru.nak.ied.qrprog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,21 +11,27 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    var bScanner: Button? = null;
     var bUserActivity: Button? = null;
+    var textNum: EditText? = null;
+    var textPass: EditText? = null
+
+    var presetPersonNum = "1"
+    var presetPass = "0000"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        bScanner = findViewById(R.id.bScan)
         bUserActivity = findViewById(R.id.bEntrance)
-        bScanner?.setOnClickListener{
-            startActivity(Intent(this, ScannerActivity::class.java))
-        }
+        textNum = findViewById(R.id.personNum)
+        textPass = findViewById(R.id.password)
 
-        bUserActivity?.setOnClickListener{
-            startActivity(Intent(this, UserActivity::class.java))
+        bUserActivity?.setOnClickListener {
+            val pass: String = textPass?.text.toString()
+            val prNum: String = textNum?.text.toString()
+            if (presetPass.equals(pass) && presetPersonNum.equals(prNum)) {
+                startActivity(Intent(this, UserActivity::class.java))
+            }
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
