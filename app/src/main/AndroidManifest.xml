@@ -19,6 +19,9 @@
         android:theme="@style/Theme.QrProg"
         tools:targetApi="31">
         <activity
+            android:name=".OneUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserActivity"
             android:exported="false" />
         <activity

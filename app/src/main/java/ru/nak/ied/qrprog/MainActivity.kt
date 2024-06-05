@@ -1,5 +1,6 @@
 package ru.nak.ied.qrprog
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +32,11 @@ class MainActivity : AppCompatActivity() {
             val pass: String = textPass?.text.toString()
             val prNum: String = textNum?.text.toString()
             if (presetPass.equals(pass) && presetPersonNum.equals(prNum)) {
-                startActivity(Intent(this, UserActivity::class.java))
+                startActivity(Intent(this, OneUserActivity::class.java))
+            } else {
+               showAlertDialog(this, "Предупреждение!",
+                   "Ошибка аутентификации. Пожалуйста, " +
+                           "проверьте ваш логин и пароль и повторите попытку")
             }
         }
 
@@ -39,5 +45,19 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    fun showAlertDialog(context: Context, title: String, message: String) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(title)
+        builder.setMessage(message)
+
+        // Добавляем кнопку "OK"
+        builder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 }

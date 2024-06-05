@@ -29,7 +29,7 @@ class ScannerActivity : AppCompatActivity(), ZBarScannerView.ResultHandler {
 
     override fun handleResult(result: Result?) {
         Log.d("MyLog", "Result:${result?.contents}")
-        val intent = Intent(this, UserActivity::class.java)
+        val intent = Intent(this, OneUserActivity::class.java)
         intent.putExtra("key", result?.contents)
         startActivity(intent)
         finish()
