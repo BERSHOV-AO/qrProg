@@ -112,14 +112,27 @@
 
     </LinearLayout>
 
-    <Button
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bScanQR"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="Scanner QR code"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/design2"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Cканировать qr код"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

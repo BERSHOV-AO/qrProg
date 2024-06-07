@@ -1,5 +1,7 @@
 package ru.nak.ied.qrprog.data.databaseConnection;
 
+import android.util.Log;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,17 +17,26 @@ public class DatabaseConnectionImpl implements IDatabaseConnection{
 
     public static Connection getConnection() {
 
-        if (connection == null) {
-            Properties properties = new Properties();
-            try (FileInputStream fis = new FileInputStream(
-                    "database/resources/db.properties")) {
-                properties.load(fis);
-                String url = properties.getProperty("url");
-                String username = properties.getProperty("username");
-                String password = properties.getProperty("password");
+        String url = "jdbc:mysql://localhost:3306/mysql";
+        String username = "root";
+        String password = "mysql";
 
-                connection = DriverManager.getConnection(url, username, password);
-            } catch (IOException | SQLException e) {
+        if (connection == null) {
+            try {
+//            Properties properties = new Properties();
+//            try (FileInputStream fis = new FileInputStream(
+//                    "database/resources/db.properties")) {
+//                properties.load(fis);
+//                String url = properties.getProperty("url");
+//                String username = properties.getProperty("username");
+//                String password = properties.getProperty("password");
+
+
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql", "root", "mysql");
+                Log.d("MyLog", "DB OK connect");
+            } catch (SQLException e) {
+                Log.d("MyLog", "DB NOT connect");
+
                 e.printStackTrace();
             }
         }

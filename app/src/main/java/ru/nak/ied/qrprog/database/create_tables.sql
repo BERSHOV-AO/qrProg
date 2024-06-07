@@ -6,5 +6,5 @@ CREATE TABLE IF NOT EXISTS maintenance.users (
      personNum INT,
      name VARCHAR(255),
      surname VARCHAR(255),
-     password INT
-     );
+     user_password INT
+);

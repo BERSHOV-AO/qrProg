@@ -43,6 +43,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation("mysql:mysql-connector-java:8.0.32")
+
 //    implementation("androidmads.library.qrgenearator:QRGenearator:1.0.1")
 // https://mvnrepository.com/artifact/androidmads.library.qrgenearator/QRGenearator
 //    implementation("androidmads.library.qrgenearator:QRGenearator:1.0.3")

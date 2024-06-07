@@ -10,10 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
 
-    var bUserActivity: Button? = null;
+    var bUserActivity: ConstraintLayout? = null;
     var textNum: EditText? = null;
     var textPass: EditText? = null
 

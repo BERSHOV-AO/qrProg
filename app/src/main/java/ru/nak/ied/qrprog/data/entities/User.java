@@ -1,16 +1,26 @@
 package ru.nak.ied.qrprog.data.entities;
 
 public class User {
+
+    private int id;
     private int personNum;
     private String name;
     private String surname;
-    private int password;
+    private String userPassword;
 
-    public User(int personNum, String name, String surname, int password) {
+    public User(int personNum, String name, String surname, String userPassword) {
         this.personNum = personNum;
         this.name = name;
         this.surname = surname;
-        this.password = password;
+        this.userPassword = userPassword;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPersonNum() {
@@ -37,21 +47,22 @@ public class User {
         this.surname = surname;
     }
 
-    public int getPassword() {
-        return password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setPassword(int password) {
-        this.password = password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "personNum=" + personNum +
+                "id=" + id +
+                ", personNum=" + personNum +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", password=" + password +
+                ", password=" + userPassword +
                 '}';
     }
 }
