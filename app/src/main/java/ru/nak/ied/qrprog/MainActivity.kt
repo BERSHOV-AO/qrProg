@@ -10,34 +10,52 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.app.AlertDialog
+import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
 
     var bUserActivity: ConstraintLayout? = null;
-    var textNum: EditText? = null;
-    var textPass: EditText? = null
-
-    var presetPersonNum = "1"
+    var presetPersonNum = "123456"
     var presetPass = "0000"
+    var nameUser: String? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
         bUserActivity = findViewById(R.id.bEntrance)
-        textNum = findViewById(R.id.personNum)
-        textPass = findViewById(R.id.password)
+        val personNum: TextView = findViewById(R.id.personNum)
+        val pass: TextView = findViewById(R.id.password)
+        nameUser = "Алексей"
 
         bUserActivity?.setOnClickListener {
-            val pass: String = textPass?.text.toString()
-            val prNum: String = textNum?.text.toString()
-            if (presetPass.equals(pass) && presetPersonNum.equals(prNum)) {
+
+            if (pass.text.isEmpty() || pass.text.contains(" ")) {
+                Toast.makeText(this, "Проверьте пароль!", Toast.LENGTH_LONG).show()
+            } else if (personNum.text.isEmpty() || personNum.text.length != 6) {
+                Toast.makeText(
+                    this, "Проверьте табельный номер!" +
+                            " \nТабельный номер должен быть 6 цифр!",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else if (presetPass.equals(pass.text.toString()) &&
+                presetPersonNum.equals(personNum.text.toString())
+            ) {
+                Toast.makeText(
+                    this, "Вход выполнен! \nЗдравствуйте ${nameUser}!",
+                    Toast.LENGTH_LONG
+                ).show()
                 startActivity(Intent(this, OneUserActivity::class.java))
+
             } else {
-               showAlertDialog(this, "Предупреждение!",
-                   "Ошибка аутентификации. Пожалуйста, " +
-                           "проверьте ваш логин и пароль и повторите попытку")
+                Toast.makeText(
+                    this, "Ошибка аутентификации. " +
+                            "\nПожалуйста,проверьте ваш логин и пароль и повторите попытку!",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
 
@@ -46,19 +64,5 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-    }
-
-    fun showAlertDialog(context: Context, title: String, message: String) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(title)
-        builder.setMessage(message)
-
-        // Добавляем кнопку "OK"
-        builder.setPositiveButton("OK") { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        val dialog = builder.create()
-        dialog.show()
     }
 }
