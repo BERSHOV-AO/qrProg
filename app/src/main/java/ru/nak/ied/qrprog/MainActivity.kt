@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     var presetPersonNum = "123456"
     var presetPass = "0000"
     var nameUser: String? = null;
+    var bSettingsActivity: ConstraintLayout? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +28,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bUserActivity = findViewById(R.id.bEntrance)
+        bSettingsActivity = findViewById(R.id.bSettings)
         val personNum: TextView = findViewById(R.id.personNum)
         val pass: TextView = findViewById(R.id.password)
         nameUser = "Алексей"
+
+        bSettingsActivity?.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
 
         bUserActivity?.setOnClickListener {
 
