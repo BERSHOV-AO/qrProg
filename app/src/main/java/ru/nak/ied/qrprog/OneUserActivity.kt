@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import ru.nak.ied.qrprog.data.entities.User
-import ru.nak.ied.qrprog.service.user.UserServiceImpl
 
 class OneUserActivity : AppCompatActivity() {
 
