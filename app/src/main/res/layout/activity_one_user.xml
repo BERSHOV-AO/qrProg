@@ -131,8 +131,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Cканировать qr код"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="18dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
