@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         bSettingsActivity = findViewById(R.id.bSettings)
         val personNum: TextView = findViewById(R.id.personNum)
         val pass: TextView = findViewById(R.id.password)
-        nameUser = "Алексей"
+
 
         val db = MainDb.getDb(this)
 

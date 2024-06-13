@@ -34,4 +34,11 @@ class ScannerActivity : AppCompatActivity(), ZBarScannerView.ResultHandler {
         startActivity(intent)
         finish()
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, OneUserActivity::class.java)
+        startActivity(intent);
+        finish();
+    }
 }
